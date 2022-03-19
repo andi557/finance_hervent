@@ -11,12 +11,11 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
+ */
 
 Route::get('/', function () {
     return view('index');
 });
-
 
 //HERVENT
 Route::get('/hervent', 'HerventsController@index');
@@ -28,6 +27,5 @@ Route::delete('/hervent/{hervent}', 'HerventsController@destroy');
 Route::get('hervent/{hervent}/edit', 'HerventsController@edit');
 Route::patch('hervent/{hervent}', 'HerventsController@update');
 
-
-Route::get('/download_invoice', 'HerventsController@invoice');
+Route::post('/download_invoice/{id}', 'HerventsController@invoice')->name('printInvoice');
 //........
